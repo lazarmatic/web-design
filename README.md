@@ -1,1 +1,1 @@
-# Web-design-project-1
+# web-design labs & projects
