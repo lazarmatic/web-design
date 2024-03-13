@@ -16,8 +16,12 @@ button{
     color: white;
     border-radius: 20%;
     }
+button:hover{
+    cursor: pointer;
+}
 a{
     font-weight: bold;
+    color: white;
 }
 .register-titlediv{
     text-align: center;
@@ -30,8 +34,40 @@ a{
 .home-title{
     text-align: center;
 }
-.home-containter{
+.home-container{
     display: flex;
     justify-content: center;
     margin: auto;
+}
+.home-table{
+    border: 2px solid white;
+}
+.login-title{
+    text-align: center;
+}
+img{
+    width:10%;
+    height: 3%;
+}
+.login-container{
+    display: flex;
+    justify-content: center;
+    margin: auto;
+}
+.login-maincontent{
+    text-align: center;
+}
+.login-button{
+    margin-top: 15px;
+}
+label{
+    color: white;
+}
+.forgotpassword-container{
+        display: flex;
+        justify-content: center;
+        margin: auto;
+}
+.forgotpassword-maincontent{
+    text-align: center;
 }
