@@ -30,7 +30,7 @@ a{
 .home-title{
     text-align: center;
 }
-.home-container{
+.home-containter{
     display: flex;
     justify-content: center;
     margin: auto;
