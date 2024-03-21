@@ -1,3 +1,4 @@
+
 *{
     margin: 0%;
     padding: 0%;
@@ -66,7 +67,7 @@ a{
     text-align: center;
     font-family: cursive;
     font-style: italic;
-    background-color: rgba(158, 106, 3, .7);
+    background-color: rgb(158, 106, 3);
     margin-inline: 25%;
     margin-top: 15px;
     margin-bottom: 40px;
@@ -78,7 +79,7 @@ a{
 .maincontent{
 display: flex;
 justify-content: center;
-background-color: rgba(249, 249, 249, .9);
+background-color: rgba(105, 102, 102, 0.9);
 margin-inline: 120px;
 padding-top: 20px;
 border-radius: 5px;
@@ -89,6 +90,7 @@ border-radius: 5px;
     border-radius: 5px;
 }
 .content:hover{
+    transition: 0.5s;
     opacity: 0.7;
 }
 .content{
@@ -107,7 +109,7 @@ border-radius: 5px;
 .co-maincontent{
             display: flex;
             justify-content: center;
-            background-color: rgba(249, 249, 249, .9);
+            background-color: rgba(105, 102, 102, 0.9);
             margin-inline: 70px;
             margin-top: 40px;
             padding-top: 10px;
@@ -132,12 +134,86 @@ border-radius: 5px;
 .searchbar{
     margin-top: 40px;
     justify-content: center;
+    align-items: center;
     display: flex;
+    color: white;
+    border: 2px solid black;
+    padding-block: 20px;
+    margin-inline: 20%;
 }
 h3{
+    background-color: rgb(158, 106, 3);
+    padding: 5px;
+    border-radius: 20%;
     margin-inline: 80px;
+    border: 2px solid black;
 }
-.search-input{
+.input-field{
     padding-block: 15px;
     padding-inline: 15px;
+    margin-inline: 2px;
+    color: white;
+    background-color:rgb(158, 106, 3);
+    border: 2px solid black;
+}
+::placeholder {
+    color: white;
+}
+
+.button-52 {
+    font-size: 16px;
+    font-weight: 200;
+    letter-spacing: 1px;
+    padding: 13px 20px 13px;
+    outline: 0;
+    border: 2px solid black;
+    cursor: pointer;
+    position: relative;
+    background-color: rgba(0, 0, 0, 0);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    color: white;
+}
+
+.button-52:after {
+    content: "";
+    background-color: rgb(158, 106, 3);
+    width: 100%;
+    z-index: -1;
+    position: absolute;
+    height: 100%;
+    top: 7px;
+    left: 7px;
+    transition: 0.2s;
+}
+
+.button-52:hover:after {
+    top: 0px;
+    left: 0px;
+}
+
+@media (min-width: 768px) {
+    .button-52 {
+        padding: 13px 50px 13px;
+    }
+}
+.input-icons {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.input-icons i {
+    position: absolute;
+}
+
+.icon {
+    padding: 10px;
+    min-width: 40px;
+}
+
+.input-field {
+    width: 100%;
+    padding: 10px;
+    text-align: center;
 }
