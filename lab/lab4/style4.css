@@ -1,0 +1,26 @@
+body{
+    background-image: url(background.jpg);
+}
+.card-img-top{
+    width: 90px;
+    height: 100px;
+    border-radius: 9999%;
+}
+.card{
+    text-align: center;
+    align-items: center;
+    margin-top: 10%;
+    margin-left: 10%;
+    padding-top: 2%;
+}
+input{
+    border: none;
+    border-bottom: 1px solid gray;
+}
+.table td{
+    border: none;
+}
+i{
+    color: rgb(6, 6, 6);
+    size: 2rem;
+}

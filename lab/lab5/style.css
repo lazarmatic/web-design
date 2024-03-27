@@ -1,0 +1,30 @@
+td{
+    padding-block: 10px;
+}
+.content:hover{
+    background-color: rgb(227, 226, 226);
+}
+.title{
+    background-color: rgb(196, 195, 195);
+    color: gray;
+    text-align: center;
+    cursor: pointer;
+}
+.content{
+    text-align: center;
+}
+table{
+border-spacing: 0;
+    width: 100%;
+    border: 1px solid #ddd;
+}
+img{
+    border-radius: 9999%;
+    width: 20px;
+    height: 20px;
+}
+i{
+    width: 20px;
+    height: 10px;
+    color: black;
+}
