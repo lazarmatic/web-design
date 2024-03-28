@@ -5,7 +5,7 @@
     box-sizing: border-box;
 }
 body{
-    background-image: url(backgroung.jpg);
+    background-image: url(photos/backgroung.jpg);
 
 }
 body::-webkit-scrollbar {
@@ -36,6 +36,7 @@ li a{
 li a:hover {
     background-color: rgba(32, 31, 31, 0.7);
     border-radius: 15%;
+    transition: 0.3s
 }
 .active{
     background-color: rgb(206, 141, 12);
@@ -44,6 +45,7 @@ li a:hover {
 .active:hover{
     border-radius: 15%;
     background-color: rgb(158, 106, 3);
+        transition: 0.3s
 }
 .photo{
     height: 40px;
@@ -139,19 +141,20 @@ border-radius: 5px;
     color: white;
     border: 2px solid black;
     padding-block: 20px;
+    padding-inline: 40px;
     margin-inline: 20%;
+    margin-bottom: 5%;
 }
 h3{
     background-color: rgb(158, 106, 3);
     padding: 5px;
     border-radius: 20%;
-    margin-inline: 80px;
     border: 2px solid black;
+    margin-inline: 70px;
 }
 .input-field{
     padding-block: 15px;
     padding-inline: 15px;
-    margin-inline: 2px;
     color: white;
     background-color:rgb(158, 106, 3);
     border: 2px solid black;
@@ -198,22 +201,79 @@ h3{
         padding: 13px 50px 13px;
     }
 }
-.input-icons {
-    width: 100%;
-    margin-bottom: 10px;
-}
-
 .input-icons i {
     position: absolute;
 }
-
 .icon {
     padding: 10px;
     min-width: 40px;
 }
-
 .input-field {
     width: 100%;
     padding: 10px;
     text-align: center;
+}
+.fa-sign-in{
+margin-right: 8px;
+}
+.about-us-content{
+        background-color: rgba(158, 106, 3, 0.7);
+        border-radius: 9999%;
+        border: 1px solid white;
+}
+.aboutus-content-text{
+    font-weight: bold;
+    font-style: italic;
+    font-size: large;
+    text-align: center;
+    color: white;
+}
+.aboutus-content-text:hover{
+    font-size: larger;
+    transition: 0.3s;
+}
+.cooking-img{
+    width: 800px;
+    height: 450px;
+    margin-left: 23%;
+    margin-bottom: 2%;
+    border: 1px solid white;
+}
+.aboutus-content-title{
+        text-align: center;
+        color: white;
+        font-style: italic;
+        padding-top: 3%;
+        padding-bottom: 3%;
+}
+.recipes-maincontent{
+    align-content: center;
+    margin-block: 5%;
+    background-color: rgba(158, 106, 3, 0.7);
+    border: 1px solid white;
+    border-radius: 5%;
+}
+.recipes-image{
+    display: block;
+    width: 100%;
+    border: 1px solid white;
+    padding: 6%;
+}
+.recipes-image:hover{
+    padding: 0.5%;
+    transition: 1s;
+    border: 3px solid white;
+    background-color: white;
+}
+.recipes-secondcontent{
+    margin-top: 5%;
+    margin-bottom: 5%;
+    text-align: center;
+    margin-inline: 25%;
+    align-items: center;
+    color: white;
+    font-weight: bold;
+    font-size: x-large;
+    font-style: italic;
+    align-content: center;
 }
