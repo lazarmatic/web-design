@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simple AJAX Example</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  </head>
+  <body>
+    <h1>Language List</h1>
+    <div class="tableContainer">
+      <table id="languageList"></table>
+    </div>
+    <div class="ipContainer">
+      <ul id="ipList"></ul>
+    </div>
+
+    <script>
+      $(document).ready(function () {
+        fetchLanguages();
+        fetchIp();
+      });
+
+      function fetchIp() {
+        $.ajax({
+          url: "https://ipapi.co/8.8.8.8/json/",
+          type: "GET",
+          dataType: "json",
+          success: function (data) {
+            let html = ``;
+            $.each(data, (index, ipData) => {
+              html += `<li> ${ipData} </li>`;
+            });
+            $("#ipList").html(html);
+          },
+          error: function (xhr, status, error) {
+            console.log(error);
+          },
+        });
+      }
+
+      function fetchLanguages() {
+        $.ajax({
+          url: "lab11.json", // Path to the JSON file
+          type: "GET", // Type of the request
+          dataType: "json", // Expected data type of the response
+          success: function (data) {
+            let tabela = $('<table border = "1">');
+            tabela.append("<tr><th>Code</th><th>Name</th></tr>");
+            data.forEach(function (language) {
+              tabela.append(
+                "<tr><td> " +
+                  language.code +
+                  "</td><td>" +
+                  language.name +
+                  "</td></tr>"
+              );
+            });
+            $("#languageList").append(tabela);
+          },
+          error: function (xhr, status, error) {
+            console.error("Error fetching Languages:", error);
+          },
+        });
+      }
+    </script>
+  </body>
+</html>
