@@ -95,90 +95,89 @@ function fetchServices() {
     dataType: "json", // Expected data type of the response
 
     success: function (data) {
-      let tabela = $('<table border = "1">');
-      tabela.append("<tr><th>Service</th><th>Availability</th></tr>");
+      let tabela = $("#servicesList");
+      tabela.append(
+        "<tr><th>Service</th><th>Availability</th><th>Actions</th></tr>"
+      );
       data.forEach(function (serviceList) {
         tabela.append(
-          "<tr><td> " +
-            serviceList.service +
-            "</td><td>" +
-            serviceList.available +
-            "</td></tr>"
+          `<tr>
+                        <td class="service-name"> ${serviceList.service} </td>
+                        <td class="service-available"> ${serviceList.available} </td>
+                        <td>
+                            <button class="edit-btn">Edit</button>
+                            <button class="delete-btn">Delete</button>
+                        </td>
+                    </tr>`
         );
       });
-      $("#servicesList").append(tabela);
     },
     error: function (xhr, status, error) {
       console.error("Error fetching Services:", error);
     },
   });
 }
-// Toaster messages
-let icon = {
-  success: '<span class="material-symbols-outlined">task_alt</span>',
-  danger: '<span class="material-symbols-outlined">error</span>',
-  warning: '<span class="material-symbols-outlined">warning</span>',
-  info: '<span class="material-symbols-outlined">info</span>',
-};
 
-const showToast = (
-  message = "Sample Message",
-  toastType = "info",
-  duration = 5000
-) => {
-  if (!Object.keys(icon).includes(toastType)) toastType = "info";
+// Delegate click event for Edit and Delete buttons
+$(document).on("click", ".edit-btn", function () {
+  let row = $(this).closest("tr");
+  let serviceName = row.find(".service-name").text().trim();
+  let serviceAvailable = row.find(".service-available").text().trim();
 
-  let box = document.createElement("div");
-  box.classList.add("toast", `toast-${toastType}`);
-  box.innerHTML = ` <div class="toast-content-wrapper"> 
-                      <div class="toast-icon"> 
-                      ${icon[toastType]} 
-                      </div> 
-                      <div class="toast-message">${message}</div> 
-                      <div class="toast-progress"></div> 
-                      </div>`;
-  duration = duration || 5000;
-  box.querySelector(".toast-progress").style.animationDuration = `${
-    duration / 1000
-  }s`;
+  // Prompt the user to edit the details
+  let newServiceName = prompt("Edit Service Name:", serviceName);
+  let newServiceAvailable = prompt("Edit Availability:", serviceAvailable);
 
-  let toastAlready = document.body.querySelector(".toast");
-  if (toastAlready) {
-    toastAlready.remove();
+  if (newServiceName !== null && newServiceAvailable !== null) {
+    row.find(".service-name").text(newServiceName);
+    row.find(".service-available").text(newServiceAvailable);
+    alert("Service updated successfully!");
   }
+});
 
-  document.body.appendChild(box);
+$(document).on("click", ".delete-btn", function () {
+  let row = $(this).closest("tr");
+  let serviceName = row.find(".service-name").text().trim();
+
+  // Confirm deletion
+  let confirmDelete = confirm(
+    `Are you sure you want to delete the service: ${serviceName}?`
+  );
+
+  if (confirmDelete) {
+    row.remove();
+    alert("Service deleted successfully!");
+  }
+});
+
+// Toaster messages
+// Configure Toastr
+toastr.options = {
+  closeButton: true,
+  debug: false,
+  newestOnTop: false,
+  progressBar: true,
+  positionClass: "toast-top-right",
+  preventDuplicates: false,
+  onclick: null,
+  showDuration: "300",
+  hideDuration: "1000",
+  timeOut: "5000",
+  extendedTimeOut: "1000",
+  showEasing: "swing",
+  hideEasing: "linear",
+  showMethod: "fadeIn",
+  hideMethod: "fadeOut",
 };
 
-let submit = document.querySelector(".custom-toast.success-toast");
-let information = document.querySelector(".custom-toast.info-toast");
-let failed = document.querySelector(".custom-toast.danger-toast");
-let warn = document.querySelector(".custom-toast.warning-toast");
-
-submit.addEventListener("click", (e) => {
-  console.log("clicked");
-  e.preventDefault();
-  showToast("Article Submitted Successfully", "success", 5000);
+// Display messages on button click
+document.getElementById("successBtn").addEventListener("click", function () {
+  toastr.success("Your action was successful!", "Success");
 });
 
-information.addEventListener("click", (e) => {
-  console.log("clicked");
-  e.preventDefault();
-  showToast("Do POTD and Earn Coins", "info", 5000);
+document.getElementById("errorBtn").addEventListener("click", function () {
+  toastr.error("There was an error processing your request.", "Error");
 });
-
-failed.addEventListener("click", (e) => {
-  console.log("clicked");
-  e.preventDefault();
-  showToast("Failed unexpected error", "danger", 5000);
-});
-
-warn.addEventListener("click", (e) => {
-  e.preventDefault();
-  console.log("clicked");
-  showToast("!warning! server error", "warning", 5000);
-});
-
 // Accordion menu - faq
 function toggleAccordion(contentId) {
   const content = document.getElementById(contentId);
@@ -188,3 +187,18 @@ function toggleAccordion(contentId) {
     content.classList.add("show");
   }
 }
+
+document.getElementById("myForm").addEventListener("submit", function (event) {
+  event.preventDefault(); // Prevent default form submission
+
+  // Get form data
+  var formData = new FormData(this);
+
+  // Simulate submission delay (2 seconds in this example)
+  setTimeout(function () {
+    // Display success message
+    document.getElementById("message").innerText = "Data saved successfully!";
+    alert("Service deleted successfully!");
+    console.log("succesfully");
+  }, 2000); // Change delay as needed
+});
