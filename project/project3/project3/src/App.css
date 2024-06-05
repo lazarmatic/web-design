@@ -43,7 +43,7 @@ h1 {
 .button-group {
   display: flex;
   justify-content: center;
-  gap: 10px;
+  gap: 3px;
   margin-bottom: 20px;
 }
 

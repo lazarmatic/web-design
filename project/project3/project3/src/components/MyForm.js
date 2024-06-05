@@ -13,13 +13,18 @@ const MyForm = () => {
   };
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <Box
+      sx={{
+        flexGrow: 1,
+        backgroundImage: "linear-gradient(to bottom, #f0f8ff, #d9eaff)", // Adjusted blue gradient
+      }}
+    >
       <Grid
         container
         spacing={2}
         justifyContent="center"
         alignItems="center"
-        style={{ minHeight: "50vh", backgroundColor: "#f5f5f5" }}
+        minHeight="50vh" // Keep the height unchanged
       >
         <Grid item xs={10} sm={8} md={6} lg={5} xl={4}>
           <Card
